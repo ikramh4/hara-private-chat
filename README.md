@@ -1,6 +1,6 @@
 # Hara: Your Messeges, is YOURS!
 
-![Hara Logo](https://via.placeholder.com/150)
+![Hara Logo](logo.png)
 
 Welcome to **Hara**, a modern private messaging application designed for those who value privacy and customization. Hara ensures that your conversations remain secure and personalized to fit your style.
 

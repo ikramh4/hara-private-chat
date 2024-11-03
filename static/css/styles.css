@@ -1,0 +1,253 @@
+body {
+    background-color: #f9f9f9; /* Soft light background */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full height */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.container {
+    max-width: 400px; /* Maximum width for the container */
+    margin: 100px auto;
+    padding: 20px;
+    background: #ffffff; /* White background for the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start slightly above */
+    animation: fadeInUp 0.5s forwards; /* Animation */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark gray for headings */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn {
+    width: 100%; /* Full width for buttons */
+    padding: 15px; /* Increased padding for larger buttons */
+    font-size: 1.2em; /* Larger font size */
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    color: white;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Styles for input fields */
+input.form-control {
+    width: 400px; /* Set width to 400px */
+    height: 52px; /* Set height to 52px */
+    padding: 12px; /* Adjust padding */
+    font-size: 1em; /* Font size for input */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    background-color: #f0f0f0; /* Light gray background */
+    transition: background-color 0.3s; /* Smooth transition */
+    box-sizing: border-box; /* Include padding and border in width/height */
+}
+
+input.form-control:focus {
+    background-color: #e9ecef; /* Slightly darker gray on focus */
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.token-display {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e9ecef; /* Light gray for token display */
+    border-radius: 5px;
+    text-align: center;
+    word-wrap: break-word; /* Ensure long text wraps within the box */
+}
+
+.chat-container {
+    display: flex;
+    height: 100vh; /* Full height */
+}
+
+.friend-list {
+    width: 250px; /* Fixed width for friend list */
+    padding: 20px;
+    background: #ffffff; /* White background */
+    border-right: 1px solid #ccc; /* Light border */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.chat-area {
+    flex-grow: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #ffffff; /* White background */
+}
+
+.chat-header {
+    background-color: #007bff; /* Blue for header */
+    color: white; /* White for text */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centered text */
+}
+
+#messages {
+    flex-grow: 1; /* Take remaining space */
+    overflow-y: auto; /* Scroll if content overflows */
+    margin-bottom: 10px;
+    background-color: #f7f7f7; /* Light gray for messages area */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for messages */
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message.sent {
+    background-color: #007bff; /* Primary color for sent messages */
+    color: white;
+    text-align: right;
+}
+
+.message.received {
+    background-color: #e9ecef; /* Light gray for received messages */
+    color: black;
+    text-align: left;
+}
+
+#message-input {
+    display: flex;
+}
+
+#message-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#message-input button {
+    padding: 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    cursor: pointer;
+}
+
+#message-input button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.announcement-area {
+    width: 250px; /* Fixed width for announcement area */
+    padding: 20px;
+    background: #ffffff; /* White background */
+    border-left: 1px solid #ccc; /* Light border */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Styles for the registration and login links */
+.text-muted {
+    color: #888; /* Gray color */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.text-muted:hover {
+    color: #555; /* Darker gray on hover */
+}
+
+.small {
+    font-size: 0.8em; /* Smaller font size */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #2c2c2c; /* Dark gray background */
+    color: #3a3a3a; /* Light text color for contrast */
+}
+
+.container.dark-mode {
+    background: #3a3a3a; /* Darker gray for the container */
+}
+
+h2.dark-mode {
+    color: #ffffff; /* White for headings in dark mode */
+}
+
+.token-display.dark-mode {
+    background: #9b6c6c; /* Medium gray for token display in dark mode */
+}
+
+.chat-header.dark-mode {
+    background-color: #4a4a4a; /* Medium gray for header in dark mode */
+    color: #ffffff; /* White for text in dark mode */
+}
+
+#messages.dark-mode {
+    background-color: #3a3a3a; /* Darker gray for messages area */
+}
+
+.message.received.dark-mode {
+    background-color: #555; /* Darker gray for received messages in dark mode */
+    color: white;
+}
+
+#message-input input.dark-mode {
+    background-color: #4a4a4a; /* Medium gray for input in dark mode */
+    color: white; /* White text for input in dark mode */
+}
+
+#message-input button.dark-mode {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+}
+
+/* Add some margin to the form for better spacing */
+form {
+    margin-top: 20px; /* Space above the form */
+}
+
+/* Optional: Add some padding to the token display */
+.token-display {
+    padding: 15px;
+    background: #e9ecef; /* Light gray for token display */
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Add some margin to the form for better spacing */
+form {
+    margin-top: 20px; /* Space above the form */
+}
+
+/* Optional: Add some padding to the token display */
+.token-display {
+    padding: 15px;
+    background: #e9ecef; /* Light gray for token display */
+    border-radius: 5px;
+    text-align: center;
+}
+

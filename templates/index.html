@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hara Chat App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="friend-list">
+            <h4>Friends</h4>
+            <ul id="friends" class="list-group">
+                <!-- Friend list items will be added here -->
+            </ul>
+            <button class="btn btn-secondary mt-2" id="add-friend">Add Someone</button>
+        </div>
+        <div class="chat-area flex-grow-1">
+            <div class="chat-header">
+                <h1>Hara Chat App</h1>
+                <h5>Welcome, {{ username }}!</h5>
+            </div>
+            <div id="messages" class="overflow-auto" style="height: 70vh;"></div>
+            <div id="message-input">
+                <input id="message" type="text" placeholder="Type a message..." />
+                <button id="send">Send</button>
+            </div>
+        </div>
+        <div class="announcement-area">
+            <h4>Announcements</h4>
+            <p>Welcome to Hara Chat! Stay tuned for updates.</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('message');
+        const sendButton = document.getElementById('send');
+        const themeToggle = document.getElementById('theme-toggle');
+
+        // Toggle dark mode
+
+        socket.on('message', function(msg) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'received');
+            messageElement.textContent = msg;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+        });
+
+        sendButton.onclick = function() {
+            const msg = messageInput.value;
+            if (msg) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', 'sent');
+                messageElement.textContent = `${username}: ${msg}`;
+                messagesDiv.appendChild(messageElement);
+                socket.emit('message', `${username}: ${msg}`);
+                messageInput.value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token - Hara Chat App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Successful!</h2>
+        <div class="token-display">
+            <p>Your username: <strong>{{ username }}</strong></p>
+            <p>Your SHA-256 token: <strong>{{ token }}</strong></p>
+            <p>Use this token to log in.</p>
+        </div>
+        <div class="text-center"> <!-- Centering the button -->
+            <a href="{{ url_for('login') }}" type="submit" class="btn btn-primary">Go to Login</a>
+
+        </div>
+    </div>
+</body>
+</html>
